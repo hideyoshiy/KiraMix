@@ -89,7 +89,7 @@
   <h1>Buy Our Bitcoin Guide</h1>
   <p>Learn how to safely use Bitcoin, set up wallets, and understand the basics of cryptocurrency. This is an educational product only.</p>
   <a class="button" id="venmoLink" href="https://venmo.com/kiraservices" target="_blank">Pay with Venmo</a>
-  <p style="margin-top: 1rem; font-size: 0.85rem; color: #555;">After payment, email <strong>hello@kiraservices.example</strong> to receive your guide.</p>
+  <p style="margin-top: 1rem; font-size: 0.85rem; color: #555;">After payment, email <strong>KiraMixCrew@gmail.com</strong> to receive your guide.</p>
   <p><a href="about.html">Learn more about our services</a></p>
 </div>
 
@@ -97,7 +97,7 @@
 <div id="consentModal">
   <div id="consentModalContent">
     <h2>Legal Consent Required</h2>
-    <p>By clicking "I Agree," you confirm that Kira Services provides educational content only, and we have no involvement or responsibility for any use of Bitcoin after delivery.</p>
+    <p>By clicking "I Agree," you confirm that Kira Services provides educational content only, and we have no involvement or responsibility for any use of Bitcoin after delivery by checking the box the user buying using KiraMix takes full responsibility of any repurcutions after using the bitcoin.</p>
     <button id="agreeButton">I Agree</button>
   </div>
 </div>
