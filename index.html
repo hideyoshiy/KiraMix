@@ -81,3 +81,242 @@ https://hideyoshiy.github.io/KiraMix/
     }
   });
 </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kira Mix — Purchase</title>
+<style>
+  /* General Styles */
+  body {
+    font-family: Arial, sans-serif;
+    background: #121212;
+    color: #eee;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  a {
+    color: #3b82f6;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 600px;
+    background: #1e1e1e;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #3b82f6;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background: #2563eb;
+  }
+
+  footer {
+    margin-top: auto;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: #aaa;
+  }
+
+  /* Modal styles */
+  #consentModal {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  #consentModalContent {
+    background: #1e1e1e; 
+    padding: 2rem; 
+    border-radius: 12px; 
+    max-width: 500px; 
+    text-align: center;
+    color: #eee;
+    outline: none;
+  }
+  #consentModalContent button {
+    padding: 0.8rem 1.2rem; 
+    background: #3b82f6; 
+    color: #fff; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Kira Mix — Buy Bitcoin Guide</h1>
+  <p>Learn how to safely use Bitcoin, set up wallets, and understand cryptocurrency basics. This is educational content only.</p>
+  <a class="button" id="venmoLink" href="https://venmo.com/kiraservices" target="_blank" rel="noopener noreferrer">Pay with Venmo</a>
+  <p style="margin-top: 1rem; font-size: 0.85rem; color: #aaa;">After payment, email <strong>KiraMixCrew@gmail.com</strong> to receive your guide.</p>
+  <p><a href="about.html">Learn more about Kira Mix</a></p>
+</div>
+
+<!-- Consent Modal -->
+<div id="consentModal" role="dialog" aria-modal="true" aria-labelledby="consentTitle" aria-describedby="consentDesc">
+  <div id="consentModalContent" tabindex="-1">
+    <h2 id="consentTitle">Legal Consent Required</h2>
+    <p id="consentDesc">
+      By clicking "I Agree," you confirm that Kira Mix provides educational content only. 
+      We are not responsible for any use of Bitcoin after delivery. Users take full responsibility.
+    </p>
+    <button id="agreeButton">I Agree</button>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('consentModal');
+  const modalContent = document.getElementById('consentModalContent');
+  const agreeButton = document.getElementById('agreeButton');
+  const venmoLink = document.getElementById('venmoLink');
+
+  let consentGiven = localStorage.getItem('consentGiven') === 'true';
+
+  function openModal() {
+    modal.style.display = 'flex';
+    modalContent.focus();
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    consentGiven = true;
+    localStorage.setItem('consentGiven', 'true');
+  }
+
+  if (!consentGiven) {
+    openModal();
+  }
+
+  agreeButton.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  modal.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+      const focusable = modalContent.querySelectorAll('button');
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    }
+    if (e.key === 'Escape') closeModal();
+  });
+
+  venmoLink.addEventListener('click', (e) => {
+    if (!consentGiven) { e.preventDefault(); alert("Please agree to the legal consent before proceeding."); }
+  });
+</script>
+
+<footer>
+  &copy; 2025 Kira Mix. All Rights Reserved.
+</footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kira Mix — About</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #121212;
+    color: #eee;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 600px;
+    background: #1e1e1e;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  h1 { margin-bottom: 1rem; }
+  p { margin-bottom: 1rem; line-height: 1.5; }
+
+  a {
+    color: #3b82f6;
+    text-decoration: none;
+  }
+  a:hover { text-decoration: underline; }
+
+  footer {
+    margin-top: auto;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: #aaa;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>About Kira Mix</h1>
+  <p>Kira Mix provides educational guides to help beginners understand Bitcoin and cryptocurrency safely. All content is purely educational.</p>
+  <p>Our goal is to empower users with knowledge so they can safely navigate the crypto world.</p>
+  <p><a href="index.html">Back to Purchase Page</a></p>
+</div>
+
+<footer>
+  &copy; 2025 Kira Mix. All Rights Reserved.
+</footer>
+
+</body>
+</html>
