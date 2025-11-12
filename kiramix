@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kira Services — Buy Bitcoin Guide</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f3f4f6; color: #111; display: flex; flex-direction: column; align-items: center; padding: 2rem; }
+  .container { max-width: 600px; background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+  h1 { margin-bottom: 1rem; }
+  p { margin-bottom: 1rem; }
+  a.button { display: inline-block; padding: 0.8rem 1.2rem; background: #3b82f6; color: #fff; border-radius: 8px; text-decoration: none; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Buy Our Bitcoin Guide</h1>
+  <p>Learn how to safely use Bitcoin, set up wallets, and understand the basics of cryptocurrency. This is an educational product only.</p>
+  <a class="button" href="https://venmo.com/kiraservices" target="_blank">Pay with Venmo</a>
+  <p style="margin-top: 1rem; font-size: 0.85rem; color: #555;">After payment, email hello@kiraservices.example to receive your guide.</p>
+  <p><a href="about.html">Learn more about our services</a></p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Kira Services</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f3f4f6; color: #111; display: flex; flex-direction: column; align-items: center; padding: 2rem; }
+  .container { max-width: 700px; background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+  h1, h2 { margin-bottom: 1rem; }
+  p { margin-bottom: 1rem; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>About Kira Services</h1>
+  <p>Kira Services provides **educational resources and consulting** for Bitcoin and cryptocurrency users. We accept Venmo for our products, such as guides and tutorials.</p>
+
+  <h2>What we offer</h2>
+  <ul>
+    <li>Bitcoin wallet setup guides</li>
+    <li>Educational resources on cryptocurrency safety and privacy</li>
+    <li>Consulting sessions on personal cryptocurrency security</li>
+  </ul>
+
+  <h2>Important Notice</h2>
+  <p>We **do not** buy or sell Bitcoin directly. We provide legal, educational services. Always use licensed exchanges for cryptocurrency transactions.</p>
+
+  <p><a href="index.html">Return to Purchase Page</a></p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kira Services — Buy Bitcoin Guide</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f3f4f6; color: #111; display: flex; flex-direction: column; align-items: center; padding: 2rem; }
+  .container { max-width: 600px; background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; }
+  h1 { margin-bottom: 1rem; }
+  p { margin-bottom: 1rem; }
+  a.button { display: inline-block; padding: 0.8rem 1.2rem; background: #3b82f6; color: #fff; border-radius: 8px; text-decoration: none; font-weight: bold; }
+  
+  /* Modal styles */
+  #consentModal {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.75);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1000;
+  }
+  #consentModalContent {
+    background: #fff; padding: 2rem; border-radius: 12px; max-width: 500px; text-align: center;
+  }
+  #consentModalContent button {
+    padding: 0.8rem 1.2rem; background: #3b82f6; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;
+    margin-top: 1rem;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Buy Our Bitcoin Guide</h1>
+  <p>Learn how to safely use Bitcoin, set up wallets, and understand the basics of cryptocurrency. This is an educational product only.</p>
+  <a class="button" id="venmoLink" href="https://venmo.com/kiraservices" target="_blank">Pay with Venmo</a>
+  <p style="margin-top: 1rem; font-size: 0.85rem; color: #555;">After payment, email <strong>hello@kiraservices.example</strong> to receive your guide.</p>
+  <p><a href="about.html">Learn more about our services</a></p>
+</div>
+
+<!-- Consent Modal -->
+<div id="consentModal">
+  <div id="consentModalContent">
+    <h2>Legal Consent Required</h2>
+    <p>By clicking "I Agree," you confirm that Kira Services provides educational content only, and we have no involvement or responsibility for any use of Bitcoin after delivery.</p>
+    <button id="agreeButton">I Agree</button>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('consentModal');
+  const agreeButton = document.getElementById('agreeButton');
+
+  // User must agree to access the page
+  agreeButton.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Optional: disable Venmo link until consent is given
+  const venmoLink = document.getElementById('venmoLink');
+  venmoLink.addEventListener('click', (e) => {
+    if (modal.style.display !== 'none') {
+      e.preventDefault();
+      alert("Please agree to the legal consent before proceeding.");
+    }
+  });
+</script>
+</body>
+</html>
