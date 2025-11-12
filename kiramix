@@ -1,5 +1,3 @@
-I see what’s happening here. You have **three HTML files merged together**, which is not valid. Browsers will get confused with multiple `<!DOCTYPE html>` and `<html>` tags in one file. I can clean this up and fix the issues while keeping your modal and styling intact. Here's a corrected version of your **main purchase page** (`index.html`) with a working consent modal:
-
 ```html
 <!DOCTYPE html>
 <html lang="en">
