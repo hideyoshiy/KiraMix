@@ -1,1 +1,83 @@
 https://hideyoshiy.github.io/KiraMix/
+<!-- Consent Modal -->
+<div id="consentModal" role="dialog" aria-modal="true" aria-labelledby="consentTitle" aria-describedby="consentDesc">
+  <div id="consentModalContent" tabindex="-1">
+    <h2 id="consentTitle">Legal Consent Required</h2>
+    <p id="consentDesc">
+      By clicking "I Agree," you confirm that Kira Services provides educational content only, 
+      and we have no involvement or responsibility for any use of Bitcoin after delivery. 
+      The user takes full responsibility for any actions after using Bitcoin.
+    </p>
+    <button id="agreeButton">I Agree</button>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('consentModal');
+  const modalContent = document.getElementById('consentModalContent');
+  const agreeButton = document.getElementById('agreeButton');
+  const venmoLink = document.getElementById('venmoLink');
+
+  // Check if consent was already given
+  let consentGiven = localStorage.getItem('consentGiven') === 'true';
+
+  function openModal() {
+    modal.style.display = 'flex';
+    modalContent.focus(); // Focus on modal content for accessibility
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    consentGiven = true;
+    localStorage.setItem('consentGiven', 'true');
+  }
+
+  // Show modal if consent not given
+  if (!consentGiven) {
+    openModal();
+  }
+
+  // User clicks "I Agree"
+  agreeButton.addEventListener('click', closeModal);
+
+  // Clicking outside the modal content also closes it
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Trap focus inside modal when open (basic version)
+  modal.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+      const focusable = modalContent.querySelectorAll('button');
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey) { // Shift + Tab
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else { // Tab
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+
+    // Allow Esc key to close modal
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  // Prevent Venmo link until consent is given
+  venmoLink.addEventListener('click', (e) => {
+    if (!consentGiven) {
+      e.preventDefault();
+      alert("Please agree to the legal consent before proceeding.");
+    }
+  });
+</script>
