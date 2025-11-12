@@ -5,10 +5,14 @@ https://hideyoshiy.github.io/KiraMix/
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kira Mix — Purchase</title>
+
+<!-- Google Font for Lightning-style text -->
+<link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+
 <style>
   body {
-    font-family: Arial, sans-serif;
-    background: #ffffff; /* White background */
+    font-family: 'Electrolize', Arial, sans-serif;
+    background: #000000; /* Black background */
     color: #8000ff; /* Purple text */
     margin: 0;
     padding: 0;
@@ -26,47 +30,6 @@ https://hideyoshiy.github.io/KiraMix/
     text-decoration: underline;
   }
 
-  .container {
-    max-width: 600px;
-    background: #f4f4f4;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    text-align: center;
-    margin-top: 2rem;
-  }
-
-  h1 {
-    margin-bottom: 1rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-    line-height: 1.5;
-  }
-
-  .button {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: #8000ff;
-    color: #fff;
-    border-radius: 8px;
-    font-weight: bold;
-    margin: 0.5rem;
-    cursor: pointer;
-  }
-
-  .button:hover {
-    background: #6600cc;
-  }
-
-  footer {
-    margin-top: auto;
-    padding: 1rem;
-    font-size: 0.85rem;
-    color: #555;
-  }
-
   /* Tabs styling */
   .tabs {
     display: flex;
@@ -78,7 +41,7 @@ https://hideyoshiy.github.io/KiraMix/
     padding: 0.8rem 1.5rem;
     cursor: pointer;
     border-radius: 8px;
-    background: #f4f4f4;
+    background: #111111;
     color: #8000ff;
     font-weight: bold;
     transition: 0.3s;
@@ -86,15 +49,15 @@ https://hideyoshiy.github.io/KiraMix/
 
   .tab.active {
     background: #8000ff;
-    color: #fff;
+    color: #000000;
   }
 
   .tab-content {
     max-width: 600px;
-    background: #f4f4f4;
+    background: #111111;
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
     margin-top: 1rem;
     display: none;
   }
@@ -103,44 +66,35 @@ https://hideyoshiy.github.io/KiraMix/
     display: block;
   }
 
+  .button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #8000ff;
+    color: #000000;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .button:hover {
+    background: #6600cc;
+  }
+
+  footer {
+    margin-top: auto;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: #8000ff;
+  }
+
   canvas {
     border-radius: 20px;
     margin-top: 2rem;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    background: #111111;
   }
-
-  /* Modal styles */
-  #consentModal {
-    position: fixed;
-    top:0; left:0; width:100%; height:100%;
-    background: rgba(0,0,0,0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-
-  #consentModalContent {
-    background: #f4f4f4; 
-    padding: 2rem; 
-    border-radius: 12px; 
-    max-width: 500px; 
-    text-align: center;
-    color: #8000ff;
-    outline: none;
-  }
-
-  #consentModalContent button {
-    padding: 0.8rem 1.2rem; 
-    background: #8000ff; 
-    color: #fff; 
-    border: none; 
-    border-radius: 8px; 
-    cursor: pointer; 
-    font-weight: bold;
-    margin-top: 1rem;
-  }
-
 </style>
 </head>
 <body>
@@ -158,13 +112,15 @@ https://hideyoshiy.github.io/KiraMix/
 <div id="purchaseTab" class="tab-content active">
   <h1>Kira Mix — Buy Bitcoin Guide</h1>
   <p>Learn how to safely use Bitcoin, set up wallets, and understand cryptocurrency basics. This is educational content only.</p>
-  
+
   <!-- Payment Buttons -->
   <a class="button" id="venmoLink" href="#" target="_blank" rel="noopener noreferrer">Pay with Venmo</a>
   <a class="button" id="cashAppLink" href="#" target="_blank" rel="noopener noreferrer">Pay with Cash App</a>
-  
-  <p style="margin-top: 1rem; font-size: 0.85rem; color: #555;">After payment, email <strong>KiraMixCrew@gmail.com</strong> to receive your guide.</p>
-  <p><a href="#">Learn more about Kira Mix</a></p>
+
+  <p style="margin-top: 1rem; font-size: 0.85rem;">After payment, email <strong>KiraMixCrew@gmail.com</strong> to receive your guide.</p>
+
+  <!-- Updated Learn More Link -->
+  <p><a href="https://www.chainalysis.com/blog/crypto-mixers/" target="_blank" rel="noopener noreferrer">Learn more about Kira Mix</a></p>
 </div>
 
 <div id="aboutTab" class="tab-content">
@@ -172,18 +128,6 @@ https://hideyoshiy.github.io/KiraMix/
   <p>At Kira Mix, we take your security seriously. All payments are securely added to our Bitcoin wallet and fully encrypted.</p>
   <p>After purchase, your Bitcoin will be sent within <strong>24-72 hours</strong> to ensure proper processing. Our system guarantees 100% secure transactions.</p>
   <p>We value transparency and safety — your funds are always handled with encryption and care.</p>
-</div>
-
-<!-- Consent Modal -->
-<div id="consentModal" role="dialog" aria-modal="true" aria-labelledby="consentTitle" aria-describedby="consentDesc">
-  <div id="consentModalContent" tabindex="-1">
-    <h2 id="consentTitle">Legal Consent Required</h2>
-    <p id="consentDesc">
-      By clicking "I Agree," you confirm that Kira Mix provides educational content only.
-      We are not responsible for any use of Bitcoin after delivery. Users take full responsibility.
-    </p>
-    <button id="agreeButton">I Agree</button>
-  </div>
 </div>
 
 <footer>
@@ -195,7 +139,7 @@ https://hideyoshiy.github.io/KiraMix/
 const canvas = document.getElementById('bitcoinCanvas');
 const ctx = canvas.getContext('2d');
 
-ctx.fillStyle = '#ffffff';
+ctx.fillStyle = '#111111';
 ctx.beginPath();
 ctx.arc(200, 200, 180, 0, Math.PI * 2);
 ctx.fill();
@@ -205,13 +149,13 @@ ctx.strokeStyle = '#8000ff';
 ctx.stroke();
 
 ctx.fillStyle = '#8000ff';
-ctx.font = 'bold 120px Arial';
+ctx.font = 'bold 120px Electrolize, Arial';
 ctx.textAlign = 'center';
 ctx.textBaseline = 'middle';
 ctx.fillText('₿', 200, 160);
 
 ctx.fillStyle = '#8000ff';
-ctx.font = 'bold 40px Arial';
+ctx.font = 'bold 40px Electrolize, Arial';
 ctx.fillText('Kira Mix', 200, 280);
 
 // Tab switching
@@ -222,72 +166,51 @@ tabs.forEach(tab => {
   tab.addEventListener('click', () => {
     tabs.forEach(t => t.classList.remove('active'));
     contents.forEach(c => c.classList.remove('active'));
-
     tab.classList.add('active');
     document.getElementById(tab.dataset.target).classList.add('active');
   });
 });
 
-// Consent modal and Venmo/CashApp payment
-const modal = document.getElementById('consentModal');
-const agreeButton = document.getElementById('agreeButton');
+// Payment Buttons
 const venmoLink = document.getElementById('venmoLink');
 const cashAppLink = document.getElementById('cashAppLink');
-
 let consentGiven = localStorage.getItem('consentGiven') === 'true';
-if (!consentGiven) modal.style.display = 'flex';
 
-function closeModal() {
-  modal.style.display = 'none';
-  consentGiven = true;
-  localStorage.setItem('consentGiven', 'true');
-}
-
-agreeButton.addEventListener('click', closeModal);
-
-// Venmo Payment
 venmoLink.addEventListener('click', (e) => {
   if (!consentGiven) {
     e.preventDefault();
     alert("Please agree to the legal consent before proceeding.");
-    return;
+  } else {
+    let amountStr = prompt("Enter the amount of Bitcoin in USD you want to receive:");
+    if (!amountStr) return;
+    let amount = parseFloat(amountStr);
+    if (isNaN(amount) || amount <= 0) {
+      alert("Please enter a valid positive number.");
+      return;
+    }
+    let penalty = amount < 100 ? 10 : Math.ceil(amount / 100) * 10;
+    let description = `Purchase $${amount.toFixed(2)} of Bitcoin. Penalty fee: $${penalty.toFixed(2)}`;
+    let venmoURL = `https://venmo.com/kiraservices?txn=pay&amount=${(amount + penalty).toFixed(2)}&note=${encodeURIComponent(description)}`;
+    window.location.href = venmoURL;
   }
-  let amountStr = prompt("Enter the amount of Bitcoin in USD you want to receive:");
-  if (!amountStr) return;
-  let amount = parseFloat(amountStr);
-  if (isNaN(amount) || amount <= 0) {
-    alert("Please enter a valid positive number.");
-    return;
-  }
-  let penalty = amount < 100 ? 10 : Math.ceil(amount / 100) * 10;
-  let description = `Purchase $${amount.toFixed(2)} of Bitcoin. Penalty fee: $${penalty.toFixed(2)}`;
-  let venmoURL = `https://venmo.com/kiraservices?txn=pay&amount=${(amount + penalty).toFixed(2)}&note=${encodeURIComponent(description)}`;
-  window.location.href = venmoURL;
 });
 
-// Cash App Payment
 cashAppLink.addEventListener('click', (e) => {
   if (!consentGiven) {
     e.preventDefault();
     alert("Please agree to the legal consent before proceeding.");
-    return;
+  } else {
+    let amountStr = prompt("Enter the amount of Bitcoin in USD you want to receive:");
+    if (!amountStr) return;
+    let amount = parseFloat(amountStr);
+    if (isNaN(amount) || amount <= 0) {
+      alert("Please enter a valid positive number.");
+      return;
+    }
+    let penalty = amount < 100 ? 10 : Math.ceil(amount / 100) * 10;
+    let cashAppURL = `https://cash.app/$Kiraservices111/${(amount + penalty).toFixed(2)}`;
+    window.location.href = cashAppURL;
   }
-  let amountStr = prompt("Enter the amount of Bitcoin in USD you want to receive:");
-  if (!amountStr) return;
-  let amount = parseFloat(amountStr);
-  if (isNaN(amount) || amount <= 0) {
-    alert("Please enter a valid positive number.");
-    return;
-  }
-  let penalty = amount < 100 ? 10 : Math.ceil(amount / 100) * 10;
-  let total = (amount + penalty).toFixed(2);
-  let cashAppURL = `https://cash.app/$Kiraservices111/${total}`;
-  window.location.href = cashAppURL;
-});
-
-// Optional: close modal with Esc
-modal.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
 });
 </script>
 
