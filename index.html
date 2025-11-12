@@ -26,23 +26,41 @@ https://hideyoshiy.github.io/KiraMix/
     text-decoration: underline;
   }
 
-  .container {
+  /* Tabs styling */
+  .tabs {
+    display: flex;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+
+  .tab {
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    border-radius: 8px;
+    background: #f4f4f4;
+    color: #8000ff;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .tab.active {
+    background: #8000ff;
+    color: #fff;
+  }
+
+  .tab-content {
     max-width: 600px;
     background: #f4f4f4;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    margin-top: 1rem;
+    display: none;
     text-align: center;
-    margin-top: 2rem;
   }
 
-  h1 {
-    margin-bottom: 1rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-    line-height: 1.5;
+  .tab-content.active {
+    display: block;
   }
 
   .button {
@@ -67,38 +85,6 @@ https://hideyoshiy.github.io/KiraMix/
     color: #555;
   }
 
-  /* Modal styles */
-  #consentModal {
-    position: fixed;
-    top:0; left:0; width:100%; height:100%;
-    background: rgba(0,0,0,0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-
-  #consentModalContent {
-    background: #f4f4f4; 
-    padding: 2rem; 
-    border-radius: 12px; 
-    max-width: 500px; 
-    text-align: center;
-    color: #8000ff;
-    outline: none;
-  }
-
-  #consentModalContent button {
-    padding: 0.8rem 1.2rem; 
-    background: #8000ff; 
-    color: #fff; 
-    border: none; 
-    border-radius: 8px; 
-    cursor: pointer; 
-    font-weight: bold;
-    margin-top: 1rem;
-  }
-
   canvas {
     border-radius: 20px;
     margin-top: 2rem;
@@ -111,114 +97,91 @@ https://hideyoshiy.github.io/KiraMix/
 <!-- Bitcoin Canvas Title -->
 <canvas id="bitcoinCanvas" width="400" height="400"></canvas>
 
-<div class="container">
+<!-- Tabs -->
+<div class="tabs">
+  <div class="tab active" data-target="purchaseTab">Purchase</div>
+  <div class="tab" data-target="aboutTab">About Us</div>
+</div>
+
+<!-- Tab Contents -->
+<div id="purchaseTab" class="tab-content active">
   <h1>Kira Mix — Buy Bitcoin Guide</h1>
   <p>Learn how to safely use Bitcoin, set up wallets, and understand cryptocurrency basics. This is educational content only.</p>
   <a class="button" id="venmoLink" href="#" target="_blank" rel="noopener noreferrer">Pay with Venmo</a>
-  <p style="margin-top: 1rem; font-size: 0.85rem; color: #555;">After payment, email <strong>KiraMixCrew@gmail.com</strong> to receive your guide.</p>
+  <p style="margin-top: 1rem; font-size: 0.85rem; color: #555;">
+    After payment, email <strong>KiraMixCrew@gmail.com</strong> to receive your guide.
+  </p>
   <p><a href="#">Learn more about Kira Mix</a></p>
 </div>
 
-<!-- Consent Modal -->
-<div id="consentModal" role="dialog" aria-modal="true" aria-labelledby="consentTitle" aria-describedby="consentDesc">
-  <div id="consentModalContent" tabindex="-1">
-    <h2 id="consentTitle">Legal Consent Required</h2>
-    <p id="consentDesc">
-      By clicking "I Agree," you confirm that Kira Mix provides educational content only.
-      We are not responsible for any use of Bitcoin after delivery. Users take full responsibility.
-    </p>
-    <button id="agreeButton">I Agree</button>
-  </div>
+<div id="aboutTab" class="tab-content">
+  <h1>About Us</h1>
+  <p>At Kira Mix, we take your security seriously. All payments are securely added to our Bitcoin wallet and fully encrypted.</p>
+  <p>After purchase, your Bitcoin will be sent within <strong>24-72 hours</strong> to ensure proper processing. Our system guarantees 100% secure transactions.</p>
+  <p>We value transparency and safety — your funds are always handled with encryption and care.</p>
 </div>
 
+<footer>
+  &copy; 2025 Kira Mix. All Rights Reserved.
+</footer>
+
 <script>
+// Draw Bitcoin Canvas
 const canvas = document.getElementById('bitcoinCanvas');
 const ctx = canvas.getContext('2d');
 
-// Draw Bitcoin-style circle
-ctx.fillStyle = '#ffffff'; // White circle background
+ctx.fillStyle = '#ffffff';
 ctx.beginPath();
 ctx.arc(200, 200, 180, 0, Math.PI * 2);
 ctx.fill();
 
-// Add purple border
 ctx.lineWidth = 10;
 ctx.strokeStyle = '#8000ff';
 ctx.stroke();
 
-// Add Bitcoin "B" symbol in purple
 ctx.fillStyle = '#8000ff';
 ctx.font = 'bold 120px Arial';
 ctx.textAlign = 'center';
 ctx.textBaseline = 'middle';
 ctx.fillText('₿', 200, 160);
 
-// Add "Kira Mix" text below
-ctx.fillStyle = '#8000ff';
 ctx.font = 'bold 40px Arial';
 ctx.fillText('Kira Mix', 200, 280);
 
-// Modal and Venmo script
-const modal = document.getElementById('consentModal');
-const agreeButton = document.getElementById('agreeButton');
+// Tab switching
+const tabs = document.querySelectorAll('.tab');
+const contents = document.querySelectorAll('.tab-content');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    contents.forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.target).classList.add('active');
+  });
+});
+
+// Venmo payment button
 const venmoLink = document.getElementById('venmoLink');
 
-// Check local storage for previous consent
-let consentGiven = localStorage.getItem('consentGiven') === 'true';
-
-// Open modal if consent not given
-if (!consentGiven) {
-  modal.style.display = 'flex';
-}
-
-// Close modal and mark consent
-function closeModal() {
-  modal.style.display = 'none';
-  consentGiven = true;
-  localStorage.setItem('consentGiven', 'true');
-}
-
-agreeButton.addEventListener('click', () => {
-  closeModal();
-
-  // Prompt for Bitcoin amount
+venmoLink.addEventListener('click', (e) => {
+  e.preventDefault();
   let amountStr = prompt("Enter the amount of Bitcoin in USD you want to receive:");
+  if (!amountStr) return;
 
-  if (!amountStr) return; // cancelled
   let amount = parseFloat(amountStr);
-
   if (isNaN(amount) || amount <= 0) {
     alert("Please enter a valid positive number.");
     return;
   }
 
-  // Calculate penalty
   let penalty = amount < 100 ? 10 : Math.ceil(amount / 100) * 10;
-
-  // Build Venmo link
   let description = `Purchase $${amount.toFixed(2)} of Bitcoin. Penalty fee: $${penalty.toFixed(2)}`;
   let venmoURL = `https://venmo.com/kiraservices?txn=pay&amount=${(amount + penalty).toFixed(2)}&note=${encodeURIComponent(description)}`;
 
-  // Redirect to Venmo
   window.location.href = venmoURL;
-});
-
-// Prevent clicking Venmo link before consent
-venmoLink.addEventListener('click', (e) => {
-  if (!consentGiven) {
-    e.preventDefault();
-    alert("Please agree to the legal consent before proceeding.");
-  }
-});
-
-// Optional: close modal with Esc
-modal.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
 });
 </script>
 
-<footer>
-  &copy; 2025 Kira Mix. All Rights Reserved.
-</footer>
-
 </body>
+</html>
