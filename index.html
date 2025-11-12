@@ -8,8 +8,8 @@ https://hideyoshiy.github.io/KiraMix/
 <style>
   body {
     font-family: Arial, sans-serif;
-    background: #121212;
-    color: #eee;
+    background: #ffffff; /* White background */
+    color: #8000ff; /* Purple text */
     margin: 0;
     padding: 0;
     display: flex;
@@ -19,7 +19,7 @@ https://hideyoshiy.github.io/KiraMix/
   }
 
   a {
-    color: #3b82f6;
+    color: #8000ff;
     text-decoration: none;
   }
   a:hover {
@@ -28,17 +28,16 @@ https://hideyoshiy.github.io/KiraMix/
 
   .container {
     max-width: 600px;
-    background: #1e1e1e;
+    background: #f4f4f4;
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 
   h1 {
     margin-bottom: 1rem;
-    color: #fff;
   }
 
   p {
@@ -49,7 +48,7 @@ https://hideyoshiy.github.io/KiraMix/
   .button {
     display: inline-block;
     padding: 0.8rem 1.5rem;
-    background: #3b82f6;
+    background: #8000ff;
     color: #fff;
     border-radius: 8px;
     font-weight: bold;
@@ -58,14 +57,14 @@ https://hideyoshiy.github.io/KiraMix/
   }
 
   .button:hover {
-    background: #2563eb;
+    background: #6600cc;
   }
 
   footer {
     margin-top: auto;
     padding: 1rem;
     font-size: 0.85rem;
-    color: #aaa;
+    color: #555;
   }
 
   /* Modal styles */
@@ -80,18 +79,18 @@ https://hideyoshiy.github.io/KiraMix/
   }
 
   #consentModalContent {
-    background: #1e1e1e; 
+    background: #f4f4f4; 
     padding: 2rem; 
     border-radius: 12px; 
     max-width: 500px; 
     text-align: center;
-    color: #eee;
+    color: #8000ff;
     outline: none;
   }
 
   #consentModalContent button {
     padding: 0.8rem 1.2rem; 
-    background: #3b82f6; 
+    background: #8000ff; 
     color: #fff; 
     border: none; 
     border-radius: 8px; 
@@ -99,16 +98,25 @@ https://hideyoshiy.github.io/KiraMix/
     font-weight: bold;
     margin-top: 1rem;
   }
+
+  canvas {
+    border-radius: 20px;
+    margin-top: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  }
 </style>
 </head>
 <body>
+
+<!-- Bitcoin Canvas Title -->
+<canvas id="bitcoinCanvas" width="400" height="400"></canvas>
 
 <div class="container">
   <h1>Kira Mix — Buy Bitcoin Guide</h1>
   <p>Learn how to safely use Bitcoin, set up wallets, and understand cryptocurrency basics. This is educational content only.</p>
   <a class="button" id="venmoLink" href="#" target="_blank" rel="noopener noreferrer">Pay with Venmo</a>
-  <p style="margin-top: 1rem; font-size: 0.85rem; color: #aaa;">After payment, email <strong>KiraMixCrew@gmail.com</strong> to receive your guide.</p>
-  <p><a href="">Learn more about Kira Mix</a></p>
+  <p style="margin-top: 1rem; font-size: 0.85rem; color: #555;">After payment, email <strong>KiraMixCrew@gmail.com</strong> to receive your guide.</p>
+  <p><a href="#">Learn more about Kira Mix</a></p>
 </div>
 
 <!-- Consent Modal -->
@@ -124,6 +132,33 @@ https://hideyoshiy.github.io/KiraMix/
 </div>
 
 <script>
+const canvas = document.getElementById('bitcoinCanvas');
+const ctx = canvas.getContext('2d');
+
+// Draw Bitcoin-style circle
+ctx.fillStyle = '#ffffff'; // White circle background
+ctx.beginPath();
+ctx.arc(200, 200, 180, 0, Math.PI * 2);
+ctx.fill();
+
+// Add purple border
+ctx.lineWidth = 10;
+ctx.strokeStyle = '#8000ff';
+ctx.stroke();
+
+// Add Bitcoin "B" symbol in purple
+ctx.fillStyle = '#8000ff';
+ctx.font = 'bold 120px Arial';
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
+ctx.fillText('₿', 200, 160);
+
+// Add "Kira Mix" text below
+ctx.fillStyle = '#8000ff';
+ctx.font = 'bold 40px Arial';
+ctx.fillText('Kira Mix', 200, 280);
+
+// Modal and Venmo script
 const modal = document.getElementById('consentModal');
 const agreeButton = document.getElementById('agreeButton');
 const venmoLink = document.getElementById('venmoLink');
@@ -187,4 +222,3 @@ modal.addEventListener('keydown', (e) => {
 </footer>
 
 </body>
-</html>
